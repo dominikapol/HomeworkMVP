@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,13 +15,78 @@
                     <view key="view" contentMode="scaleToFill" id="dHv-Ld-GZd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YXR-ZV-Etj">
+                                <rect key="frame" x="0.0" y="44" width="414" height="758"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No photos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uZT-sH-gi9">
+                                <rect key="frame" x="0.0" y="398" width="414" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="50"/>
+                                <color key="textColor" red="0.57145514460000002" green="0.42610012759999999" blue="0.84515837589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbK-YZ-EWy">
+                                <rect key="frame" x="20" y="812" width="374" height="50"/>
+                                <color key="backgroundColor" red="0.26666668059999998" green="0.84313726430000002" blue="0.71372550729999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="8NF-qK-3Ra"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="25"/>
+                                <state key="normal" title="Add photo">
+                                    <color key="titleColor" red="0.57145514460000002" green="0.42610012759999999" blue="0.84515837589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" systemColor="systemGray2Color"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="addPhotoButtonPressed" destination="1t2-l7-yzn" eventType="touchUpInside" id="lww-nK-Eqj"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="lO1-Lq-3c2"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mbK-YZ-EWy" firstAttribute="bottom" secondItem="lO1-Lq-3c2" secondAttribute="bottom" id="HGT-J4-4ds"/>
+                            <constraint firstItem="YXR-ZV-Etj" firstAttribute="trailing" secondItem="lO1-Lq-3c2" secondAttribute="trailing" id="I8i-Qt-9uG"/>
+                            <constraint firstItem="mbK-YZ-EWy" firstAttribute="leading" secondItem="lO1-Lq-3c2" secondAttribute="leading" constant="20" id="JAL-np-Vyn"/>
+                            <constraint firstItem="mbK-YZ-EWy" firstAttribute="top" secondItem="YXR-ZV-Etj" secondAttribute="bottom" constant="10" id="UVr-OQ-yiz"/>
+                            <constraint firstItem="lO1-Lq-3c2" firstAttribute="trailing" secondItem="mbK-YZ-EWy" secondAttribute="trailing" constant="20" id="eDa-0U-PbR"/>
+                            <constraint firstItem="YXR-ZV-Etj" firstAttribute="top" secondItem="lO1-Lq-3c2" secondAttribute="top" id="l7O-d8-dMJ"/>
+                            <constraint firstItem="YXR-ZV-Etj" firstAttribute="leading" secondItem="lO1-Lq-3c2" secondAttribute="leading" id="p0Y-At-mZR"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="noPhotoLabel" destination="uZT-sH-gi9" id="w80-58-MX0"/>
+                        <outlet property="tableView" destination="YXR-ZV-Etj" id="QsQ-jb-V9f"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J7B-uH-bVm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="112" y="89"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

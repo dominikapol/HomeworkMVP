@@ -9,7 +9,7 @@ import UIKit
 
 protocol EnterViewControllerProtocol: AnyObject {
     func showNextScreen()
-    func alertSorry()
+    func showAlert()
 }
 
 class EnterViewController: UIViewController {
@@ -34,8 +34,7 @@ extension EnterViewController: EnterViewControllerProtocol {
         navigationController?.pushViewController(nextVC, animated: true)
     }
     
-    
-    func alertSorry() {
+    func showAlert() {
         let alertSorry = UIAlertController(title: "Sorry, you entered uncurrect password", message: "Concentrate and try to remember the password", preferredStyle: .alert)
         let alertSorryAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertSorry.addAction(alertSorryAction)

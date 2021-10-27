@@ -14,12 +14,12 @@ protocol EnterPresenterProtocol {
 
 class EnterPresenter: EnterPresenterProtocol {
     weak var view: EnterViewControllerProtocol?
-    let hardPassword: String = "HomeworkMVP"
+    private let hardPassword: String = "HomeworkMVP"
     func enterYourPassword(password: String) {
         if password == hardPassword {
             view?.showNextScreen()
         } else {
-            view?.alertSorry()
+            view?.showAlert()
         }
     }
     
